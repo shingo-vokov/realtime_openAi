@@ -1,0 +1,275 @@
+/*
+  style.css — Супер-дорогой дизайн, 
+  у каждого персонажа своя цветовая гамма, 
+  плюс две вкладки: Conversation / Logs.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+  }
+  
+  body {
+    transition: background 0.5s, color 0.5s;
+  }
+  
+  body.default-theme {
+    background: linear-gradient(135deg, #f2f5f9, #dee4ed);
+    color: #333;
+  }
+  
+  /* --- Темы персонажей --- */
+  
+  /* Dolores: нежные песочные тона */
+  body.dolores {
+    background: linear-gradient(135deg, #efe8dc, #d9cbbb);
+    color: #4b3b2a;
+  }
+  
+  /* Jack: морская, пиратская */
+  body.jack {
+    background: linear-gradient(135deg, #b2cfd0, #8fa7a9);
+    color: #203638;
+  }
+  
+  /* Wednesday: темная, готическая, но поправим контраст */
+  body.wednesday {
+    /* более глубокий фон */
+    background: linear-gradient(135deg, #1a1a1a, #000000);
+    color: #e6e6e6;
+  }
+  
+  /* Hermione: волшебная */
+  body.hermione {
+    background: linear-gradient(135deg, #f8f0e0, #e0c8a8);
+    color: #4b3b2a;
+  }
+  
+  .container {
+    max-width: 750px;
+    margin: 2rem auto;
+    background: rgba(255,255,255,0.85);
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: background 0.5s, color 0.5s;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+  }
+  
+  .settings {
+    margin-bottom: 2rem;
+  }
+  
+  .settings h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.2rem;
+  }
+  
+  .settings label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+  }
+  
+  .settings textarea,
+  .settings select,
+  .settings input[type="number"],
+  .settings input[type="range"] {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+  
+  .checkbox-row input {
+    margin-right: 0.4rem;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  button {
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s, transform 0.1s;
+  }
+  
+  .start {
+    background: #3a9b46;
+    color: #fff;
+  }
+  
+  .start:hover {
+    background: #2a6f31;
+    transform: scale(1.02);
+  }
+  
+  .stop {
+    background: #e53935;
+    color: #fff;
+  }
+  
+  .stop:hover {
+    background: #c62828;
+    transform: scale(1.02);
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* Вкладки (Conversation / Logs) */
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tabs button {
+    flex: 1;
+    padding: 0.7rem 0;
+    border-radius: 6px;
+    background: #d1d1d1;
+    color: #333;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .tabs button:hover {
+    background: #c0c0c0;
+  }
+  
+  .tabs button.active-tab {
+    background: #868686;
+    color: #fff;
+  }
+  
+  /* Контейнер для вкладок */
+  .tabs-container {
+    background: rgba(255,255,255,0.9);
+    border-radius: 6px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+  }
+  
+  /* Содержимое вкладок */
+  .tab-content {
+    display: none; /* скрыто по умолчанию */
+  }
+  .tab-content.visible {
+    display: block; /* показываем, если активна */
+  }
+  
+  /* Conversation */
+  #conversationOutput {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    padding: 0.75rem;
+  }
+  
+  .message-block {
+    margin-bottom: 1rem;
+  }
+  
+  .message-block .speaker {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  
+  .message-block .text {
+    line-height: 1.3;
+    white-space: pre-wrap;
+    background: #f7f7f7;
+    border-radius: 4px;
+    padding: 0.5rem;
+  }
+  
+  /* Logs */
+  #consoleOutput {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    padding: 0.75rem;
+  }
+  
+  .log-line {
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    white-space: pre-wrap;
+  }
+  
+  /* --- Специальные правки для Wednesday --- */
+  body.wednesday .container {
+    /* делаем контейнер темнее и текст более светлым */
+    background: rgba(0, 0, 0, 0.55);
+    color: #ddd;
+  }
+  
+  body.wednesday .tabs-container {
+    /* тоже затемняем слегка */
+    background: rgba(0, 0, 0, 0.45);
+    border-color: #666;
+  }
+  
+  body.wednesday #conversationOutput,
+  body.wednesday #consoleOutput {
+    background: #1f1f1f;
+    border-color: #444;
+  }
+  
+  body.wednesday .message-block .text {
+    background: #2c2c2c;
+    color: #eee;
+  }
+  
+  /* Кнопки вкладок в Wednesday */
+  body.wednesday .tabs button {
+    background: #444;
+    color: #ccc;
+  }
+  
+  body.wednesday .tabs button:hover {
+    background: #555;
+    color: #fff;
+  }
+  
+  body.wednesday .tabs button.active-tab {
+    background: #666;
+    color: #fff;
+  }
+  
