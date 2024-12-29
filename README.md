@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/584d0d02-de80-47e9-a8fc-fcda3a70aa7b)
+
 Это демонстрационный пример того как вы можете использовать свой API ключ OpenAI чтобы общаться с моделью. 
 Свой API ключ можно сгенерировать тут https://platform.openai.com/settings/organization/api-keys
 
@@ -12,3 +14,4 @@
 
 для работы вам нужно будет просто скачать репозиторий и вставить свой ключ в .env
 и потом просто запустить Index.html
+
